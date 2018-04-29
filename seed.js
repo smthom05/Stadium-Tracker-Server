@@ -9,7 +9,6 @@ let locations = [];
 
 URL += CLIENT_ID + CLIENT_SECRET + SPORT + LIMIT;
 
-
 let mlb = {
   getHomeTeam: function(performers) {
     let homeTeam = '';
@@ -78,3 +77,13 @@ let mlb = {
 };
 
 mlb.search();
+
+// axios.get('/locations/populate', {mlb})
+//   .then(res => {
+//     console.log(res.data);
+//   })
+
+  axios.get('/locations')
+    .then(res => {
+      console.log(res.data);
+    })

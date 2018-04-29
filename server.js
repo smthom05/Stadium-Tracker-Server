@@ -2,6 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var axios = require("axios");
 
 var PORT = 3000;
 
@@ -25,7 +26,7 @@ app.use(express.static("public"));
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/MLB", {
+mongoose.connect("mongodb://localhost/mlb", {
   useMongoClient: true
 });
 
@@ -42,9 +43,47 @@ app.get("/users", function(req, res) {
     });
 });
 
+app.get("/:userid", function(req, res) {
+  db.User
+    .find({
+      _id: req.params.userid
+    })
+    .then(function(dbUser) {
+      res.json(dbUser);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
+app.get("/:locationid", function(req, res) {
+  db.Location
+    .find({
+      _id: req.params.locationid
+    })
+    .then(function(dbLocation) {
+      res.json(dbLocation);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
 app.get("/locations", function(req, res) {
   db.Location
     .find({})
+    .then(function(dbLocation) {
+      res.json(dbLocation);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
+app.get("/locations/populate", function(req, res) {
+  console.log(req.body);
+  db.Location
+    .create(req.body)
     .then(function(dbLocation) {
       res.json(dbLocation);
     })
@@ -132,13 +171,23 @@ app.get("/:userid/history", function(req, res) {
 });
 
 app.post("/:locationid/update", function(req, res) {
+  // let { name, coordinates, team, facts, capacity, locationPhoto, upcomingEvents } = req.body;
+  console.log(req);
   db.Location
     .findOneAndUpdate({
       _id: req.params.locationid
     },
     {
-      req.body
-    })
+      $set: {
+        name: name,
+        coordinates: coordinates,
+        team: team,
+        facts: facts,
+        capacity: capacity,
+        locationPhoto: locationPhoto,
+        upcomingEvents: upcomingEvents
+      }
+    }, {new:true})
     .then(function(dbLocation) {
       res.json(dbLocation);
     })
@@ -153,7 +202,7 @@ app.post("/:userid/update", function(req, res) {
       _id: req.params.userid
     },
     {
-      req.body
+      // req.body
     })
     .then(function(dbLocation) {
       res.json(dbLocation);

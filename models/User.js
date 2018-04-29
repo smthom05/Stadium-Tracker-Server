@@ -17,11 +17,11 @@ const UserSchema = new Schema({
       type: String
     },
     teams: [
-      team1: {
+      {
         name: String,
         score: Number
       },
-      team2: {
+      {
         name: String,
         score: Number
       },
@@ -36,10 +36,11 @@ const UserSchema = new Schema({
     }
   }],
   friends: [
-    friendId: {
-      type: Number
-    }
-  ]
+    // friendId: {
+    //   type: Number
+    // }
+  ],
+  userImage: String
 });
 
 // This creates our model from the above schema, using mongoose's model method
