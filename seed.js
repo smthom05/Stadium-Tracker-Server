@@ -4,7 +4,7 @@ const CLIENT_ID = '?client_id=NDYxNTQ2NHwxNTI0MzI5Njg2LjQ';
 const CLIENT_SECRET = '&client_secret=9013b41e1d317fc053e1277f639788dabb32d9bf18bc4f97a4bdffe872fc450d';
 let URL = 'https://api.seatgeek.com/2/events';
 const SPORT = '&taxonomies.name=mlb';
-const LIMIT = '&per_page=2';
+const LIMIT = '&per_page=200';
 let locations = [];
 
 URL += CLIENT_ID + CLIENT_SECRET + SPORT + LIMIT;
@@ -40,25 +40,21 @@ let mlb = {
     return locationPhoto;
   },
 
-  getUpcomingEvents: function(event) {
-    let upcomingEvents = [];
-    event.performers.forEach(() => {
+  getNextEvent: function(event) {
+
       let newEvent = {
         opponentName: this.getAwayTeam(event.performers),
         ticketLink: event.url,
         date: event.datetime_local
       }
-      upcomingEvents.push(newEvent);
-    })
-    return upcomingEvents;
+
+      return newEvent;
   },
 
   search: function(query) {
     return axios.get(URL)
       .then(res => {
-        // console.log(res.data.events[0].performers[0].images.huge)
         locations = res.data.events.map(location => {
-          // console.log(location.performers)
           const newLocation = {
             name: location.venue.name,
             coordinates: [
@@ -67,23 +63,24 @@ let mlb = {
             ],
             team: this.getHomeTeam(location.performers),
             photo: this.getLocationPhoto(location.performers),
-            upcomingEvents: this.getUpcomingEvents(location)
+            nextEvent: this.getNextEvent(location)
           }
           return newLocation;
         });
-        console.log(locations[1].upcomingEvents)
       })
   }
 };
-
 mlb.search();
 
-// axios.get('/locations/populate', {mlb})
-//   .then(res => {
-//     console.log(res.data);
-//   })
+axios.post('http://localhost:3000/locations/add', locations)
+  .then(res => {
+    console.log(res.data);
+  }).catch(err => {
+    console.log(err.message);
+  })
 
   axios.get('/locations')
     .then(res => {
       console.log(res.data);
+
     })

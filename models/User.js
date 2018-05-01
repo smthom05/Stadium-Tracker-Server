@@ -20,11 +20,7 @@ const UserSchema = new Schema({
       {
         name: String,
         score: Number
-      },
-      {
-        name: String,
-        score: Number
-      },
+      }
     ],
     moreInfo: {
       type: String
@@ -35,11 +31,11 @@ const UserSchema = new Schema({
       type: Boolean
     }
   }],
-  friends: [
-    // friendId: {
-    //   type: Number
-    // }
-  ],
+  friends: [{
+    friendId: {
+      type: Number
+    }
+  }],
   userImage: String
 });
 
