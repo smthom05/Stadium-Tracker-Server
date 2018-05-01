@@ -1,109 +1,83 @@
 // Require all models
-let User = require("../models/User");
+const User = require("../models/User");
 
 module.exports = function(app) {
   /*
     Get routes
   */
   // Get all users
-  app.get("/users", function(req, res) {
-    User
+  app.get("/users", (req, res) => {
+    return User
       .find({})
-      .then(function(dbUser) {
-        res.json(dbUser);
-      })
-      .catch(function(err) {
-        res.json(err);
-      });
+      .then((dbUser) => res.json(dbUser))
+      .catch((err) => res.json(err));
   });
   // Get user by id
-  app.get("/users/:userid", function(req, res) {
-    User
+  app.get("/users/:userid", (req, res) => {
+    return User
       .findById(req.params.userid)
-      .then(function(dbUser) {
-        res.json(dbUser);
-      })
-      .catch(function(err) {
-        res.json(err);
-      });
+      .then((dbUser) => res.json(dbUser))
+      .catch((err) => res.json(err));
   });
   // Get all user stats for leaderboard
-  app.get("/users/leaderboard", function(req, res) {
-    User
+  app.get("/users/leaderboard", (req, res) => {
+    return User
       .find({})
-      .then(function(dbUser) {
+      .then((dbUser) => {
 
         // TODO: Add logic for leaderboard
 
-        res.json(dbUser);
+        return res.json(dbUser);
       })
-      .catch(function(err) {
-        res.json(err);
-      });
+      .catch((err) => res.json(err));
   });
   // Get all recent public activity
-  app.get("/users/activityfeed", function(req, res) {
-    User
+  app.get("/users/activityfeed", (req, res) => {
+    return User
       .find({})
-      .then(function(dbUser) {
+      .then((dbUser) => {
 
         // TODO: Add logic for activityfeed
 
-        res.json(dbUser);
+        return res.json(dbUser);
       })
-      .catch(function(err) {
-        res.json(err);
-      });
+      .catch((err) => res.json(err));
   });
   // Get user's history by id
-  app.get("/users/:userid/history", function(req, res) {
-    User
+  app.get("/users/:userid/history", (req, res) => {
+    return User
       .findById(req.params.userid)
-      .then(function(dbUser) {
-        res.json(dbUser.gameHistory);
-      })
-      .catch(function(err) {
-        res.json(err);
-      });
+      .then((dbUser) => res.json(dbUser.gameHistory))
+      .catch((err) => res.json(err));
   });
   // Get user's stats by id
-  app.get("/users/:userid/stats", function(req, res) {
-    User
+  app.get("/users/:userid/stats", (req, res) => {
+    return User
       .findById(req.params.userid)
-      .then(function(dbUser) {
+      .then((dbUser) => {
 
         // TODO: Add logic for user's personal stats
 
-        res.json(dbUser);
+        return res.json(dbUser);
       })
-      .catch(function(err) {
-        res.json(err);
-      });
+      .catch((err) => res.json(err));
   });
 
   /*
     Post routes
   */
   // Create user(s)
-  app.post("/users", function(req, res) {
-    User
+  app.post("/users", (req, res) => {
+    return User
       .create(req.body)
-      .then(function(dbUser) {
-        res.json(dbUser);
-      })
-      .catch(function(err) {
-        res.json(err);
-      });
+      .then((dbUser) => res.json(dbUser))
+      .catch((err) => res.json(err));
   });
   // Update user by id
-  app.post("/users/:userid/update", function(req, res) {
-    User
+  app.post("/users/:userid/update", (req, res) => {
+    return User
       .findByIdAndUpdate(req.params.userid)
-      .then(function(dbLocation) {
-        res.json(dbLocation);
-      })
-      .catch(function(err) {
-        res.json(err);
-      });
+      .then((dbLocation) => res.json(dbLocation))
+      .catch((err) => res.json(err));
   });
 };

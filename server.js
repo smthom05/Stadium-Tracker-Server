@@ -26,7 +26,7 @@ require("./routes/locationRoutes")(app);
 require("./routes/userRoutes")(app);
 
 // Require all models
-let db = require("./models");
+const db = require("./models");
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
