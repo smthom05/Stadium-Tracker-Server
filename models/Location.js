@@ -5,36 +5,30 @@ const Schema = mongoose.Schema;
 const LocationSchema = new Schema({
 
   name: String,
-  coordinates: [
-    lat: {
-      type: Decimal128
-    },
-    lon: {
-      type: Decimal128
-    }
-  ],
-  team: [
-    teamName: {
-      type: String
-    }
-  ],
-  facts: [
-    fact: {
-      type: String
-    }
-  ],
+  coordinates: {
+    lat: Number,
+    lon: Number
+  },
+  team: String,
+  facts: [],
   capacity: {
     type: Number
   },
   locationPhoto: {
     type: String
   },
-  upcomingEvents: [
+  nextEvent: [{
     event: {
       opponentName: String,
       ticketLink: String,
       date: Date
-    }]
+    }
+  }],
+  recommendations: [{
+    recommendation: {
+      type: String
+    }
+  }]
 });
 
 const Location = mongoose.model("Location", LocationSchema);
