@@ -14,6 +14,7 @@ module.exports = function(app) {
         console.log(err.message);
         console.log(err.stack);
       });
+  });
   // Get location by id
   app.get("/locations/:locationid", (req, res) => {
     return Location
