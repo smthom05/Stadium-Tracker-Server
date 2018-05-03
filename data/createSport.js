@@ -1,8 +1,8 @@
 const axios = require('axios');
 require('dotenv').config();
 
-const CLIENT_ID = '?client_id=' + process.env.CLIENT_ID;
-const CLIENT_SECRET = '&client_secret=' + process.env.CLIENT_SECRET;
+const CLIENT_ID = '?client_id=' + process.env.SG_CLIENT_ID;
+const CLIENT_SECRET = '&client_secret=' + process.env.SG_CLIENT_SECRET;
 let SEARCH_URL = 'https://api.seatgeek.com/2/events';
 let SPORT_NAME = '&taxonomies.name=';
 const LIMIT = '&per_page=200';
@@ -25,6 +25,7 @@ let sport = {
   },
 
   getAwayTeam: function(performers) {
+
     let awayTeam = '';
     performers.forEach(performer => {
       if (performer.away_team) {
@@ -45,7 +46,6 @@ let sport = {
   },
 
   getNextEvent: function(event) {
-
     let newEvent = {
       opponentName: this.getAwayTeam(event.performers),
       ticketLink: event.url,
@@ -61,6 +61,7 @@ let sport = {
     SEARCH_URL += CLIENT_ID + CLIENT_SECRET + SPORT_NAME + LIMIT;
     return axios.get(SEARCH_URL)
       .then(res => {
+        // console.log("our response here", res.data.events[0]);
         locations = res.data.events.filter(location => {
           if (locations[location.venue.name]) {
             return false;
