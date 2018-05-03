@@ -1,59 +1,68 @@
 // Require all models
-let Location = require("../models/Location");
+const Location = require("../models/Location");
 
 module.exports = function(app) {
   /*
     Get routes
   */
   // Get all locations
-  app.get("/locations", function(req, res) {
-    Location
+  app.get("/locations", (req, res) => {
+    return Location
       .find({})
-      .then(function(dbLocation) {
-        res.json(dbLocation);
-      })
-      .catch(function(err) {
-        res.json(err);
+      .then((dbLocation) => res.json(dbLocation))
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
       });
   });
   // Get location by id
-  app.get("/locations/:locationid", function(req, res) {
-    console.log(req.params);
-    Location
+  app.get("/locations/:locationid", (req, res) => {
+    return Location
       .findById(req.params.locationid)
-      .then(function(dbLocation) {
-        res.json(dbLocation);
-      })
-      .catch(function(err) {
-        res.error(err);
+      .then((dbLocation) => res.json(dbLocation))
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
       });
   });
   // Get all location facts
-  app.get("/locations/facts", function(req, res) {
-    Location
+  app.get("/locations/facts", (req, res) => {
+    console.log(req.params);
+    return Location
       .find({})
-      .then(function(dbLocation) {
+      .then((dbLocation) => {
 
         // TODO: Add logic for ballpark facts
 
-        res.json(dbLocation);
+        return res.json(dbLocation);
       })
-      .catch(function(err) {
-        res.json(err);
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
       });
   });
   // Get location's stats by id
-  app.get("/locations/:locationid/stats", function(req, res) {
-    Location
+  app.get("/locations/:locationid/stats", (req, res) => {
+    return Location
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
+  });
+  // Get location's stats by id
+  app.get("/locations/:locationid/stats", (req, res) => {
+    console.log(req.params);
+    return Location
       .findById(req.params.locationid)
-      .then(function(dbLocation) {
+      .then((dbLocation) => {
 
         // TODO: Add logic for location's stats
 
-        res.json(dbLocation);
+        return res.json(dbLocation);
       })
-      .catch(function(err) {
-        res.json(err);
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
       });
   });
 
@@ -61,23 +70,20 @@ module.exports = function(app) {
     Post routes
   */
   // Create location(s)
-  app.post("/locations", function(req, res) {
-    Location
-      .create(req.body, (err) => {
-        if (err) return handleError(err)
-      })
-      .then(function(dbLocation) {
-        res.json(dbLocation);
-      })
-      .catch(function(err) {
-        res.json(err);
+  app.post("/locations", (req, res) => {
+    return Location
+      .create(req.body)
+      .then((dbLocation) => res.json(dbLocation))
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
       });
   });
   // Update location by id
-  app.post("/locations/:locationid/update", function(req, res) {
+  app.post("/locations/:locationid/update", (req, res) => {
     // let { name, coordinates, team, facts, capacity, locationPhoto, upcomingEvents } = req.body;
-    console.log(req);
-    Location
+    console.log(req.params);
+    return Location
       .findByIdAndUpdate(req.params.locationid, {
         $set: {
           name: name,
@@ -91,11 +97,10 @@ module.exports = function(app) {
       }, {
         new: true
       })
-      .then(function(dbLocation) {
-        res.json(dbLocation);
-      })
-      .catch(function(err) {
-        res.json(err);
+      .then((dbLocation) => res.json(dbLocation))
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
       });
   });
 };

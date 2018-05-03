@@ -61,7 +61,7 @@ let sport = {
     SEARCH_URL += CLIENT_ID + CLIENT_SECRET + SPORT_NAME + LIMIT;
     return axios.get(SEARCH_URL)
       .then(res => {
-        // console.log("our response here", res.data.events[0]);
+        console.log("Example response here:", res.data.events[0]);
         locations = res.data.events.filter(location => {
           if (locations[location.venue.name]) {
             return false;
@@ -71,10 +71,10 @@ let sport = {
         }).map(location => {
           const newLocation = {
             name: location.venue.name,
-            coordinates: [
-              lat = location.venue.location.lat,
-              lon = location.venue.location.lon
-            ],
+            coordinates: {
+              lat: location.venue.location.lat,
+              lon: location.venue.location.lon
+            },
             team: this.getHomeTeam(location.performers),
             locationPhoto: this.getLocationPhoto(location.performers),
             nextEvent: this.getNextEvent(location)

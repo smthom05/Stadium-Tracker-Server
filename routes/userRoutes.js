@@ -1,83 +1,89 @@
 // Require all models
-let User = require("../models/User");
+const User = require("../models/User");
 
 module.exports = function(app) {
   /*
     Get routes
   */
   // Get all users
-  app.get("/users", function(req, res) {
-    User
+  app.get("/users", (req, res) => {
+    console.log(req.params);
+    return User
       .find({})
-      .then(function(dbUser) {
-        res.json(dbUser);
-      })
-      .catch(function(err) {
-        res.json(err);
+      .then((dbUser) => res.json(dbUser))
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
       });
   });
   // Get user by id
-  app.get("/users/:userid", function(req, res) {
-    User
+  app.get("/users/:userid", (req, res) => {
+    console.log(req.params);
+    return User
       .findById(req.params.userid)
-      .then(function(dbUser) {
-        res.json(dbUser);
-      })
-      .catch(function(err) {
-        res.json(err);
+      .then((dbUser) => res.json(dbUser))
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
       });
   });
   // Get all user stats for leaderboard
-  app.get("/users/leaderboard", function(req, res) {
-    User
+  app.get("/users/leaderboard", (req, res) => {
+    console.log(req.params);
+    return User
       .find({})
-      .then(function(dbUser) {
+      .then((dbUser) => {
 
         // TODO: Add logic for leaderboard
 
-        res.json(dbUser);
+        return res.json(dbUser);
       })
-      .catch(function(err) {
-        res.json(err);
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
       });
   });
   // Get all recent public activity
-  app.get("/users/activityfeed", function(req, res) {
+  app.get("/users/activityfeed", (req, res) => {
+    return console.log(req.params);
     User
       .find({})
-      .then(function(dbUser) {
+      .then((dbUser) => {
 
         // TODO: Add logic for activityfeed
 
-        res.json(dbUser);
+        return res.json(dbUser);
       })
-      .catch(function(err) {
-        res.json(err);
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
       });
   });
   // Get user's history by id
-  app.get("/users/:userid/history", function(req, res) {
-    User
+  app.get("/users/:userid/history", (req, res) => {
+    console.log(req.params);
+    return User
       .findById(req.params.userid)
-      .then(function(dbUser) {
-        res.json(dbUser.gameHistory);
-      })
-      .catch(function(err) {
-        res.json(err);
+      .then((dbUser) => res.json(dbUser.gameHistory))
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
       });
   });
   // Get user's stats by id
-  app.get("/users/:userid/stats", function(req, res) {
-    User
+  app.get("/users/:userid/stats", (req, res) => {
+    console.log(req.params);
+    return User
       .findById(req.params.userid)
-      .then(function(dbUser) {
+      .then((dbUser) => {
 
         // TODO: Add logic for user's personal stats
 
-        res.json(dbUser);
+        return res.json(dbUser);
       })
-      .catch(function(err) {
-        res.json(err);
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
       });
   });
 
@@ -85,25 +91,25 @@ module.exports = function(app) {
     Post routes
   */
   // Create user(s)
-  app.post("/users", function(req, res) {
-    User
+  app.post("/users", (req, res) => {
+    console.log(req.params);
+    return User
       .create(req.body)
-      .then(function(dbUser) {
-        res.json(dbUser);
-      })
-      .catch(function(err) {
-        res.json(err);
+      .then((dbUser) => res.json(dbUser))
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
       });
   });
   // Update user by id
-  app.post("/users/:userid/update", function(req, res) {
-    User
+  app.post("/users/:userid/update", (req, res) => {
+    console.log(req.params);
+    return User
       .findByIdAndUpdate(req.params.userid)
-      .then(function(dbLocation) {
-        res.json(dbLocation);
-      })
-      .catch(function(err) {
-        res.json(err);
+      .then((dbLocation) => res.json(dbLocation))
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
       });
   });
 };

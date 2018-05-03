@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 SERVER_URL += PORT;
 
 axios
-  .get(SERVER_URL + '/auth/facebook')
+  .get(SERVER_URL + '/locations')
   .then(res => {
     console.log(res.data);
   });
