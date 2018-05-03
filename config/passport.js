@@ -6,6 +6,14 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 module.exports = function(passport) {
 
+  passport.serializeUser(function(user, done) {
+    done(null, user);
+  });
+
+  passport.deserializeUser(function(user, done) {
+    done(null, user);
+  });
+
   // TODO Finish adjusting Facebook App settings
 
   // Facebook
@@ -31,11 +39,11 @@ module.exports = function(passport) {
       callbackURL: "/auth/twitter/callback"
     },
     function(accessToken, refreshToken, profile, cb) {
-    //   User.findOrCreate({
-    //     twitterId: profile.id
-    //   }, function(err, user) {
-    //     return cb(err, user);
-    //   });
+      //   User.findOrCreate({
+      //     twitterId: profile.id
+      //   }, function(err, user) {
+      //     return cb(err, user);
+      //   });
     }
   ));
 
@@ -43,14 +51,19 @@ module.exports = function(passport) {
   passport.use(new GoogleStrategy({
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "/auth/google/callback"
+      callbackURL: "http://localhost:3000/auth/google/callback"
     },
     function(accessToken, refreshToken, profile, cb) {
-      // User.findOrCreate({
-      //   googleId: profile.id
-      // }, function(err, user) {
-      //   return cb(err, user);
-      // });
+      console.log(profile);
+      User.findOrCreate({
+        firstName: profile.name.givenName,
+        lastName: profile.name.familyName,
+        fullName: profile.displayName,
+        userImage: profile.photos[0].value
+      }, function(err, user) {
+        console.log(user);
+        return cb(err, user);
+      });
     }
   ));
 }

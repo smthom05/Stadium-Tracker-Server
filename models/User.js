@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const findOrCreate = require('mongoose-find-or-create');
 
 const Schema = mongoose.Schema;
 
@@ -10,7 +11,7 @@ const UserSchema = new Schema({
   lastName: {
     type: String
   },
-  fullName: this.firstName + this.lastName,
+  fullName: String,
   favoriteTeam: String,
   gameHistory: [{
     location: {
@@ -38,6 +39,13 @@ const UserSchema = new Schema({
   }],
   userImage: String
 });
+
+UserSchema.methods.getFullName = function() {
+  this.fullName = this.firstName + " " + this.lastName;
+  return this.fullName;
+};
+
+UserSchema.plugin(findOrCreate);
 
 // This creates our model from the above schema, using mongoose's model method
 const User = mongoose.model("User", UserSchema);

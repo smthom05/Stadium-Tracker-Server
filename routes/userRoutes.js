@@ -93,8 +93,10 @@ module.exports = function(app) {
   // Create user(s)
   app.post("/users", (req, res) => {
     console.log(req.params);
+    const user = new User(req.body);
+    user.getFullName();
     return User
-      .create(req.body)
+      .create(user)
       .then((dbUser) => res.json(dbUser))
       .catch((err) => {
         console.log(err.message);

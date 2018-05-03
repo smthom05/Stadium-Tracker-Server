@@ -40,15 +40,18 @@ module.exports = function(app) {
   app.get('/auth/google',
     passport.authenticate('google', {
       scope: ['profile']
-    }));
+    }), function(req, res) {
+      return res.json(res.data);
+    });
 
   app.get('/auth/google/callback',
     passport.authenticate('google', {
-      failureRedirect: '/login'
+      failureRedirect: 'http://localhost:8100'
     }),
     function(req, res) {
       // Successful authentication, redirect home.
       // res.redirect('/');
       console.log("Successful Google Login");
+      return res.data;
     });
 };
