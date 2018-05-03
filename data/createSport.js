@@ -45,7 +45,6 @@ let sport = {
   },
 
   getNextEvent: function(event) {
-
     let newEvent = {
       opponentName: this.getAwayTeam(event.performers),
       ticketLink: event.url,

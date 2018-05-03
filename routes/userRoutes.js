@@ -7,20 +7,29 @@ module.exports = function(app) {
   */
   // Get all users
   app.get("/users", (req, res) => {
+    console.log(req.params);
     return User
       .find({})
       .then((dbUser) => res.json(dbUser))
-      .catch((err) => res.json(err));
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
   });
   // Get user by id
   app.get("/users/:userid", (req, res) => {
+    console.log(req.params);
     return User
       .findById(req.params.userid)
       .then((dbUser) => res.json(dbUser))
-      .catch((err) => res.json(err));
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
   });
   // Get all user stats for leaderboard
   app.get("/users/leaderboard", (req, res) => {
+    console.log(req.params);
     return User
       .find({})
       .then((dbUser) => {
@@ -29,11 +38,15 @@ module.exports = function(app) {
 
         return res.json(dbUser);
       })
-      .catch((err) => res.json(err));
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
   });
   // Get all recent public activity
   app.get("/users/activityfeed", (req, res) => {
-    return User
+    return console.log(req.params);
+    User
       .find({})
       .then((dbUser) => {
 
@@ -41,17 +54,25 @@ module.exports = function(app) {
 
         return res.json(dbUser);
       })
-      .catch((err) => res.json(err));
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
   });
   // Get user's history by id
   app.get("/users/:userid/history", (req, res) => {
+    console.log(req.params);
     return User
       .findById(req.params.userid)
       .then((dbUser) => res.json(dbUser.gameHistory))
-      .catch((err) => res.json(err));
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
   });
   // Get user's stats by id
   app.get("/users/:userid/stats", (req, res) => {
+    console.log(req.params);
     return User
       .findById(req.params.userid)
       .then((dbUser) => {
@@ -60,7 +81,10 @@ module.exports = function(app) {
 
         return res.json(dbUser);
       })
-      .catch((err) => res.json(err));
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
   });
 
   /*
@@ -68,16 +92,24 @@ module.exports = function(app) {
   */
   // Create user(s)
   app.post("/users", (req, res) => {
+    console.log(req.params);
     return User
       .create(req.body)
       .then((dbUser) => res.json(dbUser))
-      .catch((err) => res.json(err));
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
   });
   // Update user by id
   app.post("/users/:userid/update", (req, res) => {
+    console.log(req.params);
     return User
       .findByIdAndUpdate(req.params.userid)
       .then((dbLocation) => res.json(dbLocation))
-      .catch((err) => res.json(err));
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
   });
 };

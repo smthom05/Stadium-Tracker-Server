@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const cors = require('cors');
 const newSport = require("./data/createSport");
 const PORT = process.env.PORT || 3000;
 
@@ -10,6 +11,8 @@ let app = express();
 
 // Configure middleware
 
+// Add CORS handling
+app.use(cors());
 // Use morgan logger for logging requests
 app.use(logger("dev"));
 // Use body-parser for handling form submissions
@@ -20,6 +23,8 @@ app.use(bodyParser.json());
 
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
+
+
 
 // Add our routes to the app
 require("./routes/locationRoutes")(app);

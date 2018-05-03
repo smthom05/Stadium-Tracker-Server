@@ -10,17 +10,23 @@ module.exports = function(app) {
     return Location
       .find({})
       .then((dbLocation) => res.json(dbLocation))
-      .catch((err) => res.json(err));
-  });
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
   // Get location by id
   app.get("/locations/:locationid", (req, res) => {
     return Location
       .findById(req.params.locationid)
       .then((dbLocation) => res.json(dbLocation))
-      .catch((err) => res.json(err));
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
   });
   // Get all location facts
   app.get("/locations/facts", (req, res) => {
+    console.log(req.params);
     return Location
       .find({})
       .then((dbLocation) => {
@@ -29,10 +35,22 @@ module.exports = function(app) {
 
         return res.json(dbLocation);
       })
-      .catch((err) => res.json(err));
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
   });
   // Get location's stats by id
   app.get("/locations/:locationid/stats", (req, res) => {
+    return Location
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
+  });
+  // Get location's stats by id
+  app.get("/locations/:locationid/stats", (req, res) => {
+    console.log(req.params);
     return Location
       .findById(req.params.locationid)
       .then((dbLocation) => {
@@ -41,7 +59,10 @@ module.exports = function(app) {
 
         return res.json(dbLocation);
       })
-      .catch((err) => res.json(err));
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
   });
 
   /*
@@ -50,16 +71,17 @@ module.exports = function(app) {
   // Create location(s)
   app.post("/locations", (req, res) => {
     return Location
-      .create(req.body, (err) => {
-        if (err) return handleError(err)
-      })
+      .create(req.body)
       .then((dbLocation) => res.json(dbLocation))
-      .catch((err) => res.json(err));
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
   });
   // Update location by id
   app.post("/locations/:locationid/update", (req, res) => {
     // let { name, coordinates, team, facts, capacity, locationPhoto, upcomingEvents } = req.body;
-    console.log(req);
+    console.log(req.params);
     return Location
       .findByIdAndUpdate(req.params.locationid, {
         $set: {
@@ -75,6 +97,9 @@ module.exports = function(app) {
         new: true
       })
       .then((dbLocation) => res.json(dbLocation))
-      .catch((err) => res.json(err));
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
   });
 };
