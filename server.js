@@ -9,9 +9,9 @@ const http = require('http');
 const https = require('https');
 const fs = require('fs');
 const session = require('express-session');
-// const privateKey  = fs.readFileSync('ssl/server.key', 'utf8');
-// const certificate = fs.readFileSync('ssl/server.crt', 'utf8');
-// const credentials = {key: privateKey, cert: certificate};
+const privateKey  = fs.readFileSync('ssl/server.key', 'utf8');
+const certificate = fs.readFileSync('ssl/server.crt', 'utf8');
+const credentials = {key: privateKey, cert: certificate};
 const PORT = process.env.PORT || 3000;
 
 // Initialize Express
@@ -19,6 +19,7 @@ let app = express();
 
 // Configure middleware
 app.set('trust proxy', 1);
+app.use(passport.initialize());
 app.use(session({
   secret: 'Stadium Warriors',
   resave: false,
@@ -62,10 +63,10 @@ mongoose.connect("mongodb://localhost/mlb", {
 
 
 // Create a new sport
-newSport.create('mlb');
+// newSport.create('mlb');
 
-// const httpServer = http.createServer(app);
-// const httpsServer = https.createServer(credentials, app);
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer(credentials, app);
 
 
 // Start the server
@@ -73,5 +74,5 @@ app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
 });
 
-// httpServer.listen(3001);
-// httpsServer.listen(3002);
+httpServer.listen(3001);
+httpsServer.listen(3002);
