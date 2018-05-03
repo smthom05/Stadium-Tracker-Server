@@ -17,13 +17,11 @@ const LocationSchema = new Schema({
   locationPhoto: {
     type: String
   },
-  nextEvent: [{
-    event: {
+  nextEvent: {
       opponentName: String,
       ticketLink: String,
       date: Date
-    }
-  }],
+  },
   recommendations: [{
     recommendation: {
       type: String
