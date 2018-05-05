@@ -13,30 +13,28 @@ const UserSchema = new Schema({
   },
   fullName: String,
   favoriteTeam: String,
-  gameHistory: [{
-    location: {
-      type: String
-    },
-    teams: [
-      {
-        name: String,
-        score: Number
-      }
-    ],
-    moreInfo: {
-      type: String
+  gameHistory: [
+    {
+      location: String,
+      teams: [
+        {
+          name: String,
+          score: Number
+        }
+      ],
+      date: String,
+      photo: String,
+      moreInfo: String
     }
-  }],
-  settings: [{
-    incognito: {
-      type: Boolean
+  ],
+  settings: {
+    incognito: Boolean
+  },
+  friends: [
+    {
+      friendId: Number
     }
-  }],
-  friends: [{
-    friendId: {
-      type: Number
-    }
-  }],
+  ],
   userImage: String
 });
 
