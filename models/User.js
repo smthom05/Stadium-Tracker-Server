@@ -26,13 +26,16 @@ const UserSchema = new Schema({
       photo: String,
       moreInfo: String
     }
-  ],
+  }],
   settings: {
-    incognito: Boolean
+    incognito: {
+      type: Boolean,
+      default: false
+    }
   },
-  friends: [
-    {
-      friendId: Number
+  friends: [{
+    friendId: {
+      type: Number
     }
   ],
   userImage: String
