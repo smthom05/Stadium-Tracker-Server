@@ -27,25 +27,10 @@ module.exports = function(app) {
         console.log(err.stack);
       });
   });
-  // Get all user stats for leaderboard
-  app.get("/users/leaderboard", (req, res) => {
-    console.log(req.params);
-    return User
-      .find({})
-      .then((dbUser) => {
 
-        // TODO: Add logic for leaderboard
-
-        return res.json(dbUser);
-      })
-      .catch((err) => {
-        console.log(err.message);
-        console.log(err.stack);
-      });
-  });
   // Get all recent public activity
   app.get("/activity", (req, res) => {
-    console.log('Request body:', req.body);
+    // console.log('Request body:', req.body);
     User
       .find({
         settings: {
