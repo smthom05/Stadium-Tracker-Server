@@ -49,6 +49,7 @@ app.use(express.static("public"));
 require("./routes/locationRoutes")(app);
 require("./routes/userRoutes")(app);
 require("./routes/authRoutes")(app);
+require("./routes/leaderboardRoutes")(app);
 require('./config/passport')(passport)
 
 // Require all models
