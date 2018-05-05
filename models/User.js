@@ -26,7 +26,7 @@ const UserSchema = new Schema({
       photo: String,
       moreInfo: String
     }
-  }],
+  ],
   settings: {
     incognito: {
       type: Boolean,
@@ -37,7 +37,7 @@ const UserSchema = new Schema({
     friendId: {
       type: Number
     }
-  ],
+  }],
   userImage: String
 });
 
