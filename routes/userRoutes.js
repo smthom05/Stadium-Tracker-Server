@@ -109,9 +109,10 @@ module.exports = function(app) {
   // Update user by id
   app.post("/users/:userid/update", (req, res) => {
     console.log(req.params);
+    console.log("OUR REQ BODY", req.body);
     return User
-      .findByIdAndUpdate(req.params.userid)
-      .then((dbLocation) => res.json(dbLocation))
+      .findByIdAndUpdate(req.params.userid, req.body)
+      .then((dbUser) => res.json(dbUser))
       .catch((err) => {
         console.log(err.message);
         console.log(err.stack);
