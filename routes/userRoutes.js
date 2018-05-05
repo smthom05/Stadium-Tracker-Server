@@ -44,15 +44,33 @@ module.exports = function(app) {
       });
   });
   // Get all recent public activity
-  app.get("/users/activityfeed", (req, res) => {
-    return console.log(req.params);
+  app.get("/activity", (req, res) => {
+    console.log('Request body:', req.body);
     User
-      .find({})
-      .then((dbUser) => {
+      .find({
+        settings: {
+          incognito: false
+        }
+      })
+      .then((dbUsers) => {
+        let recentActivity = [];
 
-        // TODO: Add logic for activityfeed
+        dbUsers.forEach((user) => {
+          console.log(user);
+          user.gameHistory.forEach((game) => {
+            console.log(game);
+            let newActivity = {
+              name: user.firstName + ' ' + user.lastName.charAt(0) + '.', // Ex. 'John Tester' becomes 'John T.',
+              photo: user.userImage,
+              game
+            };
+            recentActivity.push(newActivity);
+          });
+        });
 
-        return res.json(dbUser);
+        // TODO: Add logic to sort recentActivity by most recent date/time
+
+        return res.json(recentActivity);
       })
       .catch((err) => {
         console.log(err.message);
