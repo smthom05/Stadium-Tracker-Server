@@ -10,23 +10,23 @@ const LocationSchema = new Schema({
     lon: Number
   },
   team: String,
-  facts: [],
-  capacity: {
-    type: Number
+  facts: {
+    capacity: Number,
+    established: String
   },
   locationPhoto: {
     type: String
   },
   nextEvent: {
-      opponentName: String,
-      ticketLink: String,
-      date: Date
+    opponentName: String,
+    ticketLink: String,
+    date: Date
   },
-  recommendations: [{
-    recommendation: {
-      type: String
-    }
-  }]
+  recommendations: {
+    food: String,
+    drink: String,
+    attraction: String
+  }
 });
 
 const Location = mongoose.model("Location", LocationSchema);
