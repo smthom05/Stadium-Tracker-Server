@@ -1,0 +1,335 @@
+[
+  {
+    "name": "Minute Maid Park",
+    "facts": {
+      "capacity": 41168,
+      "established": "2000"
+    },
+    "recommendations": {
+      "food": "The .45 Express (Section ) - A ballpark-only hot dog from Torchy’s Tacos that’s topped with hot Cheetos, queso, pico, and sour cream before being wrapped into a tortilla. ",
+      "drink": "Texas Amber by ZiegenBock Brewery Company",
+      "attraction": "Union Station Lobby is the main entrance to Minute Maid Park, and the former concourse of Houston's original Union Station built in 1911."
+    }
+  },
+  {
+    "name": "Citi Field",
+    "facts": {
+      "capacity": 41922,
+      "established": "2009"
+    },
+    "recommendations": {
+      "food": "Junior's Deep Friend New York Cheesecake",
+      "drink": "Metropolitan Lager by Flagship Brewery",
+      "attraction": "The Mets' Home Run Apple. When a Mets player hits a home run, a giant apple, which has a Mets logo on the front that lights up, rises from the center field batter's eye."
+    }
+  },
+  {
+    "name": "Progressive Field",
+    "facts": {
+      "capacity": 35225,
+      "established": "1994"
+    },
+    "recommendations": {
+      "food": "The Happy Dog Stand's Killer Kilbane Dog",
+      "drink": "Burning River Pale Ale by Great Lakes Brewing Co",
+      "attraction": "The stacked bullpens in the Right Field District are one of the most unique layouts in Major League baseball. They provide an awesome view of player warmups and incredible access to the players. Plus, three rows of seats just in front of the bullpens offer a unique seating option with great views of the entire field. "
+    }
+  },{
+    "name": "Nationals Park",
+    "facts": {
+      "capacity": 41313,
+      "established": "2008"
+    },
+    "recommendations": {
+      "food": "Ben's Chilli Bowl's Half Smoke(Sections 110 & 141) - It’s a half-pork, half-beef sausage that’s smoked and then served slathered in cheese, onions and chili.",
+      "drink": "The Citizen by DC Brau Brewing Company",
+      "attraction": "The iconic Presidents Race is held at every game at Nationals Park, in the middle of the fourth inning. It features presidents George Washington, Thomas Jefferson, Abraham Lincoln, Theodore Roosevelt and is always full of surprises and guest cameos."
+    }
+  },{
+    "name": "Kauffman Stadium",
+    "facts": {
+      "capacity": 37903,
+      "established": "1973"
+    },
+    "recommendations": {
+      "food": "Sweet Baby Ray's Barbeque (Sections 221 & 422) - Burnt Ends Basket",
+      "drink": "¡Vamos! by Boulevard Brewing Company",
+      "attraction": "The park's best-known feature is the fountain and waterfall display known as the Water Spectacular behind the right-field fence. At 322 feet, it is the largest privately funded fountain in the world. The fountains are on display before and after the game and in-between innings, while the waterfalls are constantly flowing."
+    }
+  },{
+    "name": "Guaranteed Rate Field",
+    "facts": {
+      "capacity": 40615,
+      "established": "1991"
+    },
+    "recommendations": {
+      "food": "Brisket Mac and Grilled Cheese",
+      "drink": "Green Line Pale Ale by Goose Island",
+      "attraction": ""
+    }
+  },{
+    "name": "Globe Life Park",
+    "facts": {
+      "capacity": 49115,
+      "established": "1994"
+    },
+    "recommendations": {
+      "food": "557 Smokehouse's Wicked Pig (Section 49) - $27 sandwich starts with a sweet Hawaiian roll, which is then piled high with pulled pork, thick cut Danish bacon, a split sausage, prosciutto, and thick sliced ham. Coleslaw, barbecue sauce, and pork rinds round out this meaty offering.",
+      "drink": "Shiner Bock by Shiner",
+      "attraction": "A four story office building is located in center field that you can rent by the game or as a permenent office space."
+    }
+  },{
+    "name": "Safeco Field",
+    "facts": {
+      "capacity": 47943,
+      "established": "1999"
+    },
+    "recommendations": {
+      "food": "Sultan of Sandwich (Section 105)",
+      "drink": "Manny's Pale Ale by Georgetown Brewing",
+      "attraction": "Art in the Park - Safeco Field and its adjoining parking garage features local art displays each game."
+    }
+  },{
+    "name": "Chase Field",
+    "facts": {
+      "capacity": 48519,
+      "established": "1998"
+    },
+    "recommendations": {
+      "food": "Taste of Chase's D-bat Dog (Section 130) - An 18 inch corn dog stuffed with jalapeno, cheddar cheese and bacon, then served on a bed of fries.",
+      "drink": "Kilt Lifter by Four Peaks Brewing Company",
+      "attraction": "Watch the game from the pool and hottub located in right field."
+    }
+  },{
+    "name": "Tropicana Field",
+    "facts": {
+      "capacity": 42735,
+      "established": "1990"
+    },
+    "recommendations": {
+      "food": "The Cuban Burger (Section 117)",
+      "drink": "Jai Alai by Cigar City Brewing",
+      "attraction": "Rays Touch Tank"
+    }
+  },{
+    "name": "Miller Park",
+    "facts": {
+      "capacity": 41900,
+      "established": "2001"
+    },
+    "recommendations": {
+      "food": "Bratwurst",
+      "drink": "Spotted Cow by New Glarus Brewing",
+      "attraction": "The Racing Sausages and Bernie the Brewer's Slide."
+    }
+  },{
+    "name": "Great American Ball Park",
+    "facts": {
+      "capacity": 42319,
+      "established": "2003"
+    },
+    "recommendations": {
+      "food": "Queen City Hot Ham Sandwich",
+      "drink": "Blueberry Lager by Rivertown Brewing",
+      "attraction": "The Power Stacks"
+    }
+  },{
+    "name": "Yankee Stadium",
+    "facts": {
+      "capacity": 54251,
+      "established": "2009"
+    },
+    "recommendations": {
+      "food": "Lobel's Meatloaf Burger",
+      "drink": "NY Pinstripe Pilsner by Blue Point Brewing Company",
+      "attraction": "New York Yankees Museum"
+    }
+  },{
+    "name": "Wrigley Field",
+    "facts": {
+      "capacity": 41649,
+      "established": "1914"
+    },
+    "recommendations": {
+      "food": "Chicago-Style Hot Dog",
+      "drink": "312 by Goose Island",
+      "attraction": "Iconic ivy covered outfield walls."
+    }
+  },{
+    "name": "Angel Stadium of Anaheim",
+    "facts": {
+      "capacity": 45050,
+      "established": "1966"
+    },
+    "recommendations": {
+      "food": "Big Cheese's Short-Rib Grilled Cheese (Section 211)",
+      "drink": " Karl Strauss’ Red Trolley Ale by Golden Road Brewing",
+      "attraction": "Iconic Haloed A Sculpture"
+    }
+  },{
+    "name": "Oakland-Alameda County Coliseum",
+    "facts": {
+      "capacity": 63132,
+      "established": "1966"
+    },
+    "recommendations": {
+      "food": "Shibe Park Tavern's Ahi Poke Tacos",
+      "drink": "Little Sumpin' Sumpin' by Lagunitas",
+      "attraction": "Unique design to allow for both football and baseball."
+    }
+  },{
+    "name": "Dodger Stadium",
+    "facts": {
+      "capacity": 56000,
+      "established": "1962"
+    },
+    "recommendations": {
+      "food": "Elote - One of Mexico's most popular street food, this roasted corn on the cob comes with cotija cheese, mayonnaise and chili powder",
+      "drink": "Dodgers Blonde by Golden Road Brewing",
+      "attraction": "10 story elevator shaft behind home plate"
+    }
+  },{
+    "name": "Busch Stadium",
+    "facts": {
+      "capacity": 45538,
+      "established": "2006"
+    },
+    "recommendations": {
+      "food": "Dinger's Donuts",
+      "drink": "Busch Light by Anheuser-Busch",
+      "attraction": "Ballpark Village and amazing view of the Gateway Arch"
+    }
+  },{
+    "name": "Oriole Park at Camden Yards",
+    "facts": {
+      "capacity": 45971,
+      "established": "1992"
+    },
+    "recommendations": {
+      "food": "Flying Dog Grill's Chesapeake Fries",
+      "drink": "National Bohemian Beer by Pabst Brewing Company",
+      "attraction": "The old B&O's warehouse wall acts as the ballpark's surrounding wall."
+    }
+  },{
+    "name": "Petco Park",
+    "facts": {
+      "capacity": 42445,
+      "established": "2004"
+    },
+    "recommendations": {
+      "food": "The Broham Pulled Pork Sandwich at Phil's BBQ",
+      "drink": "San Diego Pale Ale .394 by AleSmith Brewing Company",
+      "attraction": "The Park at the Park"
+    }
+  },{
+    "name": "Rogers Centre",
+    "facts": {
+      "capacity": 53506,
+      "established": "1989"
+    },
+    "recommendations": {
+      "food": "Liberty Village Sausage Poutine at Toronto Street Eats",
+      "drink": "Rally Cap by Left Field Brewery",
+      "attraction": "The first ever full retractable domed roof"
+    }
+  },{
+    "name": "Fenway Park",
+    "facts": {
+      "capacity": 37731,
+      "established": "1912"
+    },
+    "recommendations": {
+      "food": "Lobster Roll",
+      "drink": "Boston Lager by Samuel Adams",
+      "attraction": "Oldest ballpark in the nation"
+    }
+  },{
+    "name": "PNC Park",
+    "facts": {
+      "capacity": 38362,
+      "established": "2001"
+    },
+    "recommendations": {
+      "food": "Primanti Bro's Sandwich",
+      "drink": "Iron City Lager by Pittsburgh Brewing Company",
+      "attraction": "The Great Pierogi Race, is a race that features six contestants racing in giant pierogi costumes: Potato Pete, Jalapeño Hannah, Cheese Chester, Sauerkraut Saul, Oliver Onion, Bacon Burt, and Pizza Penny."
+    }
+  },{
+    "name": "SunTrust Park",
+    "facts": {
+      "capacity": 41149,
+      "established": "2017"
+    },
+    "recommendations": {
+      "food": "Tomahawk Pork Chop",
+      "drink": "Chopsecutioner by Terrapin Brewing Company",
+      "attraction": "Monument Garden"
+    }
+  },{
+    "name": "Comerica Park",
+    "facts": {
+      "capacity": 41297,
+      "established": "2000"
+    },
+    "recommendations": {
+      "food": "Grecian French Fries at The Corktown Stand",
+      "drink": "Two Hearted by Bells ",
+      "attraction": "The Ferris Wheel behind the third base line"
+    }
+  },{
+    "name": "Marlins Park",
+    "facts": {
+      "capacity": 36742,
+      "established": "2012"
+    },
+    "recommendations": {
+      "food": "Lechon Pork Nachos",
+      "drink": "Shark Bait by Miami Brewing Company",
+      "attraction": "The Homerun Marlin"
+    }
+  },{
+    "name": "Citizens Bank Park",
+    "facts": {
+      "capacity": 43647,
+      "established": "2004"
+    },
+    "recommendations": {
+      "food": "Tony Luke's Cheesesteak",
+      "drink": "Yuengling Lager by Yuengling",
+      "attraction": "Neon Liberty Bell"
+    }
+  },{
+    "name": "AT&T Park",
+    "facts": {
+      "capacity": 41915,
+      "established": "2000"
+    },
+    "recommendations": {
+      "food": "Garlic Fries",
+      "drink": "Come Hell or High Watermelon by 21st Amendment",
+      "attraction": "Giant Coke Bottle and Baseball Glove"
+    }
+  },{
+    "name": "Coors Field",
+    "facts": {
+      "capacity": 50398,
+      "established": "1995"
+    },
+    "recommendations": {
+      "food": "Rocky Mountain Oyster Po-boy",
+      "drink": "Rockpile by SandLot Brewery at Coors Field",
+      "attraction": "The Rooftop"
+    }
+  },{
+    "name": "Target Field",
+    "facts": {
+      "capacity": 39504,
+      "established": "2010"
+    },
+    "recommendations": {
+      "food": "Kramarczuk’s Kurd-Marczuk",
+      "drink": "Maibock by Summit",
+      "attraction": "Target Plaza"
+    }
+  },
+]
