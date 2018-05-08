@@ -76,8 +76,49 @@ module.exports = function(app) {
     console.log(req.params);
     console.log("OUR REQ BODY", req.body);
     return User
-      .findByIdAndUpdate(req.params.userid, req.body)
+      .findByIdAndUpdate(req.params.userid, req.body, {
+        new: true
+      })
       .then((dbUser) => res.json(dbUser))
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
+  });
+  // Update user history by id
+  app.post("/users/:userid/update/history", (req, res) => {
+    // console.log(req.params);
+    console.log("New checkin", req.body);
+    return User
+      .findByIdAndUpdate(req.params.userid, {
+        gameHistory: req.body
+      }, {
+        new: true
+      })
+      .then((dbUser) => res.json(dbUser.gameHistory))
+      .catch((err) => {
+        console.log(err.message);
+        console.log(err.stack);
+      });
+  });
+  // Update user's history item by id
+  app.post("/users/:userid/update/history/:itemid", (req, res) => {
+    console.log(req.params);
+    console.log("Updated checkin info", req.body);
+    return User
+      .findOneAndUpdate({
+        // '_id': req.params.userid,
+        "gameHistory._id": req.params.itemid
+      }, {
+        gameHistory: req.body
+      }, {
+        new: true
+      })
+      .then((dbUser) => {
+        let lastIndex = dbUser.gameHistory.length - 1;
+        console.log('Updated checkin', dbUser.gameHistory[lastIndex]);
+        return res.json(dbUser.gameHistory[lastIndex])
+      })
       .catch((err) => {
         console.log(err.message);
         console.log(err.stack);
