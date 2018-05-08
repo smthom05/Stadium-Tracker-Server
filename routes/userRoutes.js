@@ -142,9 +142,11 @@ module.exports = function(app) {
     console.log("Updated checkin info", req.body);
     return User
       .findOneAndUpdate({
-        _id: req.params.userid,
-        'gameHistory._id': req.params.itemid
-      }, req.body, {
+        // '_id': req.params.userid,
+        "gameHistory._id": req.params.itemid
+      }, {
+        gameHistory: req.body
+      }, {
         new: true
       })
       .then((dbUser) => {
